@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f0f0f0;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .logo-test {
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Logo Image Test</h1>
+    
+    <div class="test-container">
+        <h2>Test 1: Direct Image Display</h2>
+        <div class="logo-test">
+            <p><strong>Image path:</strong> assets/placeholder-logo.jpeg</p>
+            <img src="assets/placeholder-logo.jpeg" alt="Test Logo" style="height: 100px; width: auto;">
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>Test 2: Different Sizes</h2>
+        <div class="logo-test">
+            <p><strong>Small (40px):</strong></p>
+            <img src="assets/placeholder-logo.jpeg" alt="Small Logo" style="height: 40px; width: auto;">
+        </div>
+        <div class="logo-test">
+            <p><strong>Medium (60px):</strong></p>
+            <img src="assets/placeholder-logo.jpeg" alt="Medium Logo" style="height: 60px; width: auto;">
+        </div>
+        <div class="logo-test">
+            <p><strong>Large (100px):</strong></p>
+            <img src="assets/placeholder-logo.jpeg" alt="Large Logo" style="height: 100px; width: auto;">
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>Test 3: With Background</h2>
+        <div class="logo-test" style="background: #333; padding: 20px;">
+            <p style="color: white;"><strong>Dark Background:</strong></p>
+            <img src="assets/placeholder-logo.jpeg" alt="Logo on Dark" style="height: 60px; width: auto;">
+        </div>
+    </div>
+
+    <script>
+        // Check if images loaded successfully
+        window.addEventListener('load', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach((img, index) => {
+                if (img.complete && img.naturalHeight !== 0) {
+                    console.log(`Image ${index + 1} loaded successfully`);
+                    img.style.border = '2px solid green';
+                } else {
+                    console.log(`Image ${index + 1} failed to load`);
+                    img.style.border = '2px solid red';
+                    img.alt = 'FAILED TO LOAD';
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
